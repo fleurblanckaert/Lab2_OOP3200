@@ -1,3 +1,9 @@
+/* Student Name: Fleur Blanckaert, Gabriel Dietrich
+   Student ID: 100747083, 100764733
+   Date: 25th September, 2020
+   Program: Lab2_Classes - OOP 3200
+   Description:
+*/
 #include <iostream>
 #include <iomanip>
 #include <cmath>
@@ -33,7 +39,7 @@ double MyConsoleInput::ReadDouble(const double MIN, const double MAX)
 		{
 			stringstream errorMessage;
 
-			errorMessage << " * Invalid input. Please Enter a value between " << MIN << " and " << MAX << ". Redo Entry!.\n";
+			errorMessage << " * Invalid input. Retry this entry and enter a value between " << MIN << " and " << MAX << ".\n";
 			
 			// report the problem to the user.
 			throw invalid_argument(errorMessage.str());
@@ -55,7 +61,7 @@ int MyConsoleInput::ReadInteger(const int MIN, const int MAX)
 		if (validNumber > (int)validNumber)      // If user input is not a whole number
 		{
 			// report the problem to the user.
-			throw invalid_argument(" * Invalid input. Please enter whole number. Redo Entry!\n");
+			throw invalid_argument(" * Invalid input. Retry this entry and enter whole number.\n");
 		}
 		return (int)validNumber; // returns a valid value to the calling function.
 

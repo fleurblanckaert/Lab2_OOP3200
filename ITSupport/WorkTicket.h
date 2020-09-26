@@ -1,3 +1,9 @@
+/* Student Name: Fleur Blanckaert, Gabriel Dietrich
+   Student ID: 100747083, 100764733
+   Date: 25th September, 2020
+   Program: Lab2_Classes - OOP 3200
+   Description:
+*/
 #pragma once
 
 #ifndef WORK_TICKET
@@ -10,7 +16,8 @@ using namespace std;
 
 class WorkTicket
 { 
-public:
+
+	public:
 
 	//Default Constructor
 	WorkTicket() : ticketNumber(0), clientId(""), ticketDay(1), ticketMonth(1), ticketYear(2000), issueDescription("") {}
@@ -18,6 +25,9 @@ public:
 	//Parameterized Constructor
 	WorkTicket(int number, string id, int day, int month, int year, std::string description);
 
+	//Copy Constructor
+	WorkTicket(const WorkTicket& copyTicket);
+	
 	//Accessors;
 	int GetTicketNumber() const
 	{

@@ -1,7 +1,12 @@
+/* Student Name: Fleur Blanckaert, Gabriel Dietrich
+   Student ID: 100747083, 100764733
+   Date: 25th September, 2020
+   Program: Lab2_Classes - OOP 3200
+   Description:
+*/
 #include "WorkTicket.h"
-
-
 #include <iomanip>
+#include <iostream>
 #include <sstream> 		// stringstream
 #include <string>		// for getline
 #include <sstream> 		// stringstream
@@ -17,6 +22,19 @@ WorkTicket::WorkTicket(int number, string id, int day, int month, int year, stri
 	issueDescription = description;
 }
 
+WorkTicket::WorkTicket(const WorkTicket& copyTicket)
+{
+	ticketNumber = copyTicket.ticketNumber;
+	clientId = copyTicket.clientId;
+	ticketDay = copyTicket.ticketDay;
+	ticketMonth = copyTicket.ticketMonth;
+	ticketYear = copyTicket.ticketYear;
+	issueDescription = copyTicket.issueDescription;
+
+	cout << endl << "A work ticket object was copied" << endl;
+}
+
+
 //Method to display user's Work Ticket Number
 string WorkTicket::ShowWorkTicket() const
 {
@@ -28,6 +46,7 @@ string WorkTicket::ShowWorkTicket() const
 	return string.str();
 }
 
+//Method to set user input
 bool WorkTicket::SetWorkTicket(int number, string id, int day, int month, int year, string description)
 {
 

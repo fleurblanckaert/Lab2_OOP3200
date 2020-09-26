@@ -1,9 +1,8 @@
 /* Student Name: Fleur Blanckaert, Gabriel Dietrich
    Student ID: 100747083, 100764733
-   Date: 19th September, 2020
-   Program: Lab1_Classes - OOP 3200
-   Description: This is an application that creates a class called WorkTicket, which represents a
-                a client's request for support.
+   Date: 25th September, 2020
+   Program: Lab2_Classes - OOP 3200
+   Description: 
 */ 
 
 #include <iostream>     // for cin and cout
@@ -20,7 +19,6 @@ int main()
 {
 	//Declarations
 	WorkTicket ticket[3];
-	WorkTicket ticket1;
 	int ticketInput;
 	string clientInput;
 	int dayInput;
@@ -29,12 +27,16 @@ int main()
 	string descriptionInput;
 	int i = 0;
 	const int ARRAY_SIZE = 3;
-	
-	//Default Values
+
+	//Created two work ticket objects and initialized ticket 2 data members to ticket 1 values
+	WorkTicket ticket1(1, "CA100", 02, 12, 2020, "Laptop needs to be rebooted");
+	WorkTicket ticket2 = ticket1;
+
+	//Demonstrating the copy constructor
 	cout << endl << "Ticket Number\t" << "Client ID\t" << "Work Ticket Date\t" << "Issue Description\t" << endl;
-	cout << ticket1.ShowWorkTicket() << endl;
-
-
+	cout << ticket1.ShowWorkTicket() << endl
+		 << ticket2.ShowWorkTicket() << endl;
+	
 	//Output Header
 	cout << endl << "IT Support Tracking Application" << endl
 		<< "===============================" << endl << endl;
@@ -49,11 +51,9 @@ int main()
 				cout << "The Ticket Number is: ";
 				ticketInput = MyConsoleInput::ReadInteger(1);
 
-
 				//Prompts user for client id number
 				cout << "The Client ID is: ";
 				getline(cin, clientInput);
-
 
 				//Prompts user for work ticket date
 				cout << "The Work Ticket Date is: \nDay: ";
@@ -73,6 +73,9 @@ int main()
 				ticket[i].SetWorkTicket(ticketInput, clientInput, dayInput, monthInput, yearInput, descriptionInput);
 				cout << endl;
 
+				//Display copy Constructor
+
+				
 				i++;
 			}
 			catch (const invalid_argument& ex)
