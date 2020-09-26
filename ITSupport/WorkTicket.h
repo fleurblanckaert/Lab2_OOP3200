@@ -9,7 +9,7 @@
 using namespace std;
 
 class WorkTicket
-{
+{ 
 public:
 
 	//Default Constructor

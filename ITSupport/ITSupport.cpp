@@ -4,7 +4,7 @@
    Program: Lab1_Classes - OOP 3200
    Description: This is an application that creates a class called WorkTicket, which represents a
                 a client's request for support.
-*/
+*/ 
 
 #include <iostream>     // for cin and cout
 #include <iomanip> 		// for output formatting

@@ -4,7 +4,7 @@
 #include <limits> // numeric_limits
 #include <cfloat>  // for limits of a double DBL_MIN and DBL_MAX
 #include <sstream> 		// stringstream
-
+ 
 #include "MyConsoleInput.h"
 using namespace std;
 
