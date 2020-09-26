@@ -47,7 +47,7 @@ WorkTicket::operator string() const
 	return string.str();
 }
 
-//Assignment Operator 
+//Equality Operator 
 bool WorkTicket::operator==(const WorkTicket& matchTicket) const
 {
 

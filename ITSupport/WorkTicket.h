@@ -31,7 +31,7 @@ class WorkTicket
 	//Conversion Operator
 	operator string() const;
 
-	//Assignment Operator
+	//Equality Operator
 	bool operator==(const WorkTicket& matchTicket) const;
 	
 	//Accessors;
