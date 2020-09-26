@@ -36,6 +36,13 @@ class WorkTicket
 
 	//Assignment Operator
 	WorkTicket operator=(const WorkTicket& newTicket);
+
+	/*Friend Overload - IStream >> Operator*/
+	friend istream& operator>>(istream& in, WorkTicket& userInput);
+
+	/*Friend Overload - oStream >> Operator*/
+	friend ostream& operator<<(ostream& out, const WorkTicket userInput);
+
 	
 	//Accessors;
 	int GetTicketNumber() const
@@ -70,10 +77,6 @@ private:
 	int ticketMonth;
 	int ticketYear;
 	string issueDescription;
-
-	//Validates ticket number
-	int ValidateNumber(int ticketNumber) const; // Double representing the validated value
-	int ValidateDate(int ticketDay, int ticketMonth, int ticketYear) const; // Double representing the validated value
 
 };
 

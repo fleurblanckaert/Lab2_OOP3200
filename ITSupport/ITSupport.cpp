@@ -57,61 +57,69 @@ int main()
 	cout << endl << "Ticket 2: " << ticket4.ShowWorkTicket() << endl;
 	
 	cout << endl << "Ticket 1 should now have the value of ticket 4 (default constructor) " << ticket1.ShowWorkTicket() << endl;
-	
+
+	//Demonstration cout with userInput
+	WorkTicket ticket5;
+
+	//Create and call a validate function on ticket5
+		cin >> ticket5;
+		cout << ticket5;
+
+		
 	//Output Header
-	cout << endl << "IT Support Tracking Application" << endl
-		<< "===============================" << endl << endl;
+	//cout << endl << "IT Support Tracking Application" << endl
+	//	<< "===============================" << endl << endl;
 
-		while (i < ARRAY_SIZE)
-		{
-			try
-			{
+	//	while (i < ARRAY_SIZE)
+	//	{
+	//		try
+	//		{
 
-				cout << "Entry " << "[" << i + 1 << "]" << endl;
-				//Prompts user to enter Work Ticket Number
-				cout << "The Ticket Number is: ";
-				ticketInput = MyConsoleInput::ReadInteger(1);
+	//			cout << "Entry " << "[" << i + 1 << "]" << endl;
+	//			//Prompts user to enter Work Ticket Number
+	//			cout << "The Ticket Number is: ";
+	//			ticketInput = MyConsoleInput::ReadInteger(1);
 
-				//Prompts user for client id number
-				cout << "The Client ID is: ";
-				getline(cin, clientInput);
+	//			//Prompts user for client id number
+	//			cout << "The Client ID is: ";
+	//			getline(cin, clientInput);
 
-				//Prompts user for work ticket date
-				cout << "The Work Ticket Date is: \nDay: ";
-				dayInput = MyConsoleInput::ReadInteger(1, 31);
+	//			//Prompts user for work ticket date
+	//			cout << "The Work Ticket Date is: \nDay: ";
+	//			dayInput = MyConsoleInput::ReadInteger(1, 31);
 
-				cout << "Month: ";
-				monthInput = MyConsoleInput::ReadInteger(1, 12);
+	//			cout << "Month: ";
+	//			monthInput = MyConsoleInput::ReadInteger(1, 12);
 
-				cout << "Year: ";
-				yearInput = MyConsoleInput::ReadInteger(2000, 2099);
+	//			cout << "Year: ";
+	//			yearInput = MyConsoleInput::ReadInteger(2000, 2099);
 
-				//Prompts user for issue description
-				cout << "The Issue Description is: ";
-				getline(cin, descriptionInput);
+	//			//Prompts user for issue description
+	//			cout << "The Issue Description is: ";
+	//			getline(cin, descriptionInput);
 
-				//Sets user Input
-				ticket[i].SetWorkTicket(ticketInput, clientInput, dayInput, monthInput, yearInput, descriptionInput);
-				cout << endl;
+	//			//Sets user Input
+	//			ticket[i].SetWorkTicket(ticketInput, clientInput, dayInput, monthInput, yearInput, descriptionInput);
+	//			cout << endl;
 
-				//Display copy Constructor
+	//			//Display copy Constructor
 
-				
-				i++;
-			}
-			catch (const invalid_argument& ex)
-			{
-				cerr << "\nException occurred: " << ex.what() << endl;
-				
-			}
-		}
+	//			
+	//			i++;
+	//		}
+	//		catch (const invalid_argument& ex)
+	//		{
+	//			cerr << "\nException occurred: " << ex.what() << endl;
+	//			
+	//		}
+	//	}
 	
-	//Displays output
-	cout << endl << "Ticket Number\t" << "Client ID\t" << "Work Ticket Date\t" << "Issue Description\t" << endl;
-	for (int i = 0; i < 3; i++)
-	{
-		cout << ticket[i].ShowWorkTicket() << endl;
-	}
+	////Displays output
+	//cout << endl << "Ticket Number\t" << "Client ID\t" << "Work Ticket Date\t" << "Issue Description\t" << endl;
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	cout << ticket[i].ShowWorkTicket() << endl;
+	//}
 
 	return 0;
 
