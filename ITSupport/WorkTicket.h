@@ -33,6 +33,9 @@ class WorkTicket
 
 	//Equality Operator
 	bool operator==(const WorkTicket& matchTicket) const;
+
+	//Assignment Operator
+	WorkTicket operator=(const WorkTicket& newTicket);
 	
 	//Accessors;
 	int GetTicketNumber() const

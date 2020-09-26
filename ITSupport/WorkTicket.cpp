@@ -61,6 +61,20 @@ bool WorkTicket::operator==(const WorkTicket& matchTicket) const
 
 }
 
+//Assignment Operator
+WorkTicket WorkTicket::operator=(const WorkTicket& newTicket)
+{
+	SetTicketNumber(newTicket.GetTicketNumber());
+	SetClientID(newTicket.GetClientId());
+	SetTicketDate(newTicket.ticketDay, newTicket.ticketMonth, newTicket.ticketYear);
+	SetIssueDescription(newTicket.GetIssueDescription());
+
+	cout << endl << "A work ticket object was assigned" << endl;
+	return newTicket;
+	
+	
+}
+
 //Method to display user's Work Ticket Number
 string WorkTicket::ShowWorkTicket() const
 {
