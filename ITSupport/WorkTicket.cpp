@@ -22,6 +22,7 @@ WorkTicket::WorkTicket(int number, string id, int day, int month, int year, stri
 	issueDescription = description;
 }
 
+//Copy Constructor
 WorkTicket::WorkTicket(const WorkTicket& copyTicket)
 {
 	ticketNumber = copyTicket.ticketNumber;
@@ -34,6 +35,17 @@ WorkTicket::WorkTicket(const WorkTicket& copyTicket)
 	cout << endl << "A work ticket object was copied" << endl;
 }
 
+//Conversion Operator
+WorkTicket::operator string() const
+{
+	stringstream string;
+	string << "Work Ticket # " << (ticketNumber)
+		<< " - " << (clientId)
+		<< " (" << (ticketDay) << "/" << setw(2) << (ticketMonth) << "/" << (ticketYear) << "): "
+		<< (issueDescription);
+
+	return string.str();
+}
 
 //Method to display user's Work Ticket Number
 string WorkTicket::ShowWorkTicket() const

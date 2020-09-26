@@ -7,6 +7,7 @@
 
 #include <iostream>     // for cin and cout
 #include <iomanip> 		// for output formatting
+#include <sstream>
 #include <stdexcept>	// for invalid_argument
 #include <string>		// for getline
 #include "MyConsoleInput.h" // Provided by Tom Tsiliopoulous (For ConsoleInput::ReadInteger())
@@ -36,7 +37,14 @@ int main()
 	cout << endl << "Ticket Number\t" << "Client ID\t" << "Work Ticket Date\t" << "Issue Description\t" << endl;
 	cout << ticket1.ShowWorkTicket() << endl
 		 << ticket2.ShowWorkTicket() << endl;
+
+	//Demonstrating the conversion operator
+	string ticket3;
+
+	ticket3 = string(ticket1);
+	cout << endl <<"The ticket now looks like " << ticket3 << endl;
 	
+
 	//Output Header
 	cout << endl << "IT Support Tracking Application" << endl
 		<< "===============================" << endl << endl;

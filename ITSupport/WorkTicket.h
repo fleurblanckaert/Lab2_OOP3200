@@ -27,6 +27,9 @@ class WorkTicket
 
 	//Copy Constructor
 	WorkTicket(const WorkTicket& copyTicket);
+
+	//Conversion Operator
+	operator string() const;
 	
 	//Accessors;
 	int GetTicketNumber() const
