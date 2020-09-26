@@ -43,8 +43,14 @@ int main()
 
 	ticket3 = string(ticket1);
 	cout << endl <<"The ticket now looks like " << ticket3 << endl;
-	
 
+	//Demonstrating the equality operator
+	//WorkTicket ticket4; //For testing purposes
+	cout << endl << "Ticket 1: " << ticket1.ShowWorkTicket() << endl;
+	cout << endl << "Ticket 2: " << ticket2.ShowWorkTicket() << endl;
+	cout << endl << "Does ticket 1 match ticket 2? " << (ticket1 == ticket2) << endl;
+
+	
 	//Output Header
 	cout << endl << "IT Support Tracking Application" << endl
 		<< "===============================" << endl << endl;

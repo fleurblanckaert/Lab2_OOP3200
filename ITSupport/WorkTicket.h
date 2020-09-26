@@ -30,6 +30,9 @@ class WorkTicket
 
 	//Conversion Operator
 	operator string() const;
+
+	//Assignment Operator
+	bool operator==(const WorkTicket& matchTicket) const;
 	
 	//Accessors;
 	int GetTicketNumber() const

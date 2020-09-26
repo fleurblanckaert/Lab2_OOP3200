@@ -47,6 +47,20 @@ WorkTicket::operator string() const
 	return string.str();
 }
 
+//Assignment Operator 
+bool WorkTicket::operator==(const WorkTicket& matchTicket) const
+{
+
+	if (GetTicketNumber() == matchTicket.GetTicketNumber() &&
+		GetClientId() == matchTicket.GetClientId() &&
+		GetTicketDate() == matchTicket.GetTicketDate() &&
+		GetIssueDescription() == matchTicket.GetIssueDescription())
+	{
+		return true;
+	}
+
+}
+
 //Method to display user's Work Ticket Number
 string WorkTicket::ShowWorkTicket() const
 {
