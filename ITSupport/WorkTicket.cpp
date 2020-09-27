@@ -2,7 +2,9 @@
    Student ID: 100747083, 100764733
    Date: 25th September, 2020
    Program: Lab2_Classes - OOP 3200
-   Description:
+   Description: This application creates a class called WorkTicket, which represents the client's
+				request for IT support.	The class is copied into anew constructor. Later on, the
+				application demonstrates the usability of the operators "==", "=", ">>", and "<<".
 */
 #include "WorkTicket.h"
 #include <iomanip>
@@ -11,7 +13,6 @@
 #include <string>		// for getline
 #include <sstream> 		// stringstream
 
-#include "MyConsoleInput.h"
 
 //Parameterized Constructor for WorkTicket Class
 WorkTicket::WorkTicket(int number, string id, int day, int month, int year, string description)
@@ -34,7 +35,9 @@ WorkTicket::WorkTicket(const WorkTicket& copyTicket)
 	ticketYear = copyTicket.ticketYear;
 	issueDescription = copyTicket.issueDescription;
 
+	// Testing puposes - Indicates if Copy constructor worked properly
 	cout << endl << "A work ticket object was copied" << endl;
+	cout << "Ticket Number\t" << "Client ID\t" << "Work Ticket Date\t" << "Issue Description\t" << endl;
 }
 
 //Conversion Operator
@@ -80,8 +83,8 @@ string WorkTicket::ShowWorkTicket() const
 {
 	stringstream string;
 
-	string << (ticketNumber) << "\t\t" << (clientId) << "\t\t" << setw(2) << (ticketDay) << "/" << setw(2) << (ticketMonth) << "/" << (ticketYear) << "\t\t"
-		<< (issueDescription);
+	string << (ticketNumber) << "\t\t" << (clientId) << "\t\t" << setw(2) << (ticketDay) <<
+		"/" << setw(2) << (ticketMonth) << "/" << (ticketYear) << "\t\t" << (issueDescription);
 
 	return string.str();
 }
@@ -89,7 +92,6 @@ string WorkTicket::ShowWorkTicket() const
 //Method to set user input
 bool WorkTicket::SetWorkTicket(int number, string id, int day, int month, int year, string description)
 {
-
 	SetTicketNumber(number);
 	SetClientID(id);
 	SetTicketDate(day, month, year);
@@ -98,43 +100,107 @@ bool WorkTicket::SetWorkTicket(int number, string id, int day, int month, int ye
 
 }
 
+//Prompts user to enter attributes of WorkTicket
 istream& operator>>(istream& in, WorkTicket& userInput)
 {
+	int MIN_AMOUNT = 1;
+	int MAX_DAY = 31;
+	int MAX_MONTH = 12;
+	int MIN_YEAR = 2000;
+	int MAX_YEAR = 2099;
 	int i = 0;
-	while (i<1)
+	while (i < 1)
 	{
-		
-		cout << "The Ticket Number is: ";
-		in >> userInput.ticketNumber;
+		//Throws exception
+		try
+		{
+			//Prompts user to enter a ticket number
+			cout << "The Ticket Number is: ";
+			while (true)
+			{
+				if (in.fail())            //if user input fails
+				{
+					in.clear(); // Reset the fail() 
+					in.sync();  // clear the buffer 
+					in.ignore();
+				}
 
-		//Prompts user for client id number
-		cout << "The Client ID is: ";
-		in >> userInput.clientId;
+				in >> userInput.ticketNumber;
+				if (userInput.ticketNumber < MIN_AMOUNT)
+				{
+					cout << "Please enter a positive whole number: ";
+				}
+				else
+				{
+					break;
+				}
 
-		//Prompts user for work ticket date
-		cout << "The Work Ticket Date is: \nDay: ";
-		in >> userInput.ticketDay;
+			}
+			//Prompts user for client id number
+			cout << "The Client ID is: ";
+			in >> userInput.clientId;
 
-		cout << "Month: ";
-		in >> userInput.ticketMonth;
+			//Prompts user for work ticket date
+			cout << "The Work Ticket Date is: \nDay: ";
+			while (true)
+			{
+				in >> userInput.ticketDay;
+				if (userInput.ticketDay < MIN_AMOUNT || userInput.ticketDay > MAX_DAY)
+				{
+					cout << "Please enter a number between " << MIN_AMOUNT << " and " << MAX_DAY << ": ";
+				}
+				else
+				{
+					break;
+				}
+			}
 
-		cout << "Year: ";
-		in >> userInput.ticketYear;
+			cout << "Month: ";
+			while (true)
+			{
+				in >> userInput.ticketMonth;
+				if (userInput.ticketMonth < MIN_AMOUNT || userInput.ticketMonth > MAX_MONTH)
+				{
+					cout << "Please enter a number between " << MIN_AMOUNT << " and " << MAX_MONTH << ": ";
+				}
+				else
+				{
+					break;
+				}
+			}
 
-		cout << "The Issue Description is: ";
-		in >> userInput.issueDescription;
+			cout << "Year: ";
+			while (true)
+			{
+				in >> userInput.ticketYear;
+				if (userInput.ticketYear < MIN_YEAR || userInput.ticketYear > MAX_YEAR)
+				{
+					cout << "Please enter a number between " << MIN_YEAR << " and " << MAX_YEAR << ": ";
+				}
+				else
+				{
+					break;
+				}
+			}
+			stringstream str;
+			//Prompts user to enter description	
+			cout << "The Issue Description is: ";
+			in >> userInput.issueDescription;
+
+		}
+		//Executes exception
+		catch (const invalid_argument& ex)
+		{
+			cerr << "\nException occurred: " << ex.what() << endl;
+
+		}
 		return in;
-		
-	} 
-
-	
-		
+	}
 }
 
+// Displays attributes entered by user
 ostream& operator<<(ostream& out, const WorkTicket userInput)
 {
-	
-		out << userInput.ShowWorkTicket();
-		return out;
-
+	out << userInput.ShowWorkTicket();
+	return out;
 }
