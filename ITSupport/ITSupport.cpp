@@ -54,12 +54,9 @@ int main()
 	WorkTicket ticket4(4, "CA104", 20, 12, 2020, "Screen Cracked"); //For testing purposes
 	ticket1 = ticket4;
 
+	cout << endl << "Ticket 1 should now have the value of ticket 4: \n";
 	cout << endl << "Ticket 1: " << ticket1.ShowWorkTicket();
-	cout << endl << "Ticket 4: " << ticket4.ShowWorkTicket() << endl;
-
-	cout << endl << "Ticket 1 should now have the value of ticket 4 (default constructor): \n\n" <<
-		"Ticket Number\t" << "Client ID\t" << "Work Ticket Date\t" << "Issue Description\t" << endl <<
-		ticket1.ShowWorkTicket() << endl << endl;
+	cout << endl << "Ticket 4: " << ticket4.ShowWorkTicket() << endl << endl;
 
 	//Demonstrating cout with userInput
 	WorkTicket ticket5;
@@ -71,9 +68,11 @@ int main()
 	}
 	catch (const invalid_argument& ex)
 	{
-		cerr << "\nException occurred: " << ex.what() << endl;
+		cerr << endl << "\nException occurred: " << ex.what() << endl;
 
 	}
+
+	//Displays ticket to user using cout
 	cout << ticket5 << endl << endl;
 
 

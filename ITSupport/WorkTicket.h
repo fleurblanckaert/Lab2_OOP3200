@@ -40,7 +40,7 @@ public:
 	friend istream& operator>>(istream& in, WorkTicket& userInput);
 
 	/*Friend Overload - oStream >> Operator*/
-	friend ostream& operator<<(ostream& out, const WorkTicket userInput);
+	friend ostream& operator<<(ostream& out, const WorkTicket userOutput);
 
 
 	//Accessors;

@@ -13,6 +13,8 @@
 #include <string>		// for getline
 #include <sstream> 		// stringstream
 
+using namespace std;
+
 
 //Parameterized Constructor for WorkTicket Class
 WorkTicket::WorkTicket(int number, string id, int day, int month, int year, string description)
@@ -109,6 +111,7 @@ istream& operator>>(istream& in, WorkTicket& userInput)
 	int MIN_YEAR = 2000;
 	int MAX_YEAR = 2099;
 	int i = 0;
+	
 	while (i < 1)
 	{
 		//Throws exception
@@ -182,10 +185,23 @@ istream& operator>>(istream& in, WorkTicket& userInput)
 					break;
 				}
 			}
-			stringstream str;
-			//Prompts user to enter description	
-			cout << "The Issue Description is: ";
-			in >> userInput.issueDescription;
+
+			//Prompts user to enter description
+			while(true)
+			{
+				getline(in, userInput.issueDescription);
+				if (userInput.issueDescription == "")
+				{
+					cout << "The Issue Description is : ";
+				}
+				else
+				{				
+					break;
+				}
+			}
+
+			//getline(in, userInput.issueDescription);
+			//in >> userInput.issueDescription;
 
 		}
 		//Executes exception
@@ -199,8 +215,8 @@ istream& operator>>(istream& in, WorkTicket& userInput)
 }
 
 // Displays attributes entered by user
-ostream& operator<<(ostream& out, const WorkTicket userInput)
+ostream& operator<<(ostream& out, const WorkTicket userOutput)
 {
-	out << userInput.ShowWorkTicket();
+	out << userOutput.ShowWorkTicket();
 	return out;
 }
